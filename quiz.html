@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SZA: Saturn – Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="about.html">About SZA</a>
+      <a href="album.html">The Album</a>
+      <a href="music.html">Music/Stream</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="promo.html">Promo</a>
+      <a href="contact.html">Contact</a>
+      <a href="quiz.html">Quiz</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero quiz-hero">
+    <h1>🪐 The Saturn Quiz</h1>
+    <p>“Test your cosmic knowledge about SZA and her universe.”</p>
+  </section>
+
+  <!-- Quiz Section -->
+  <section class="quiz-section">
+    <div class="quiz-container">
+      <h2>✨ How well do you know <span>SZA: Saturn</span>?</h2>
+
+      <form id="quizForm">
+        <div class="quiz-question">
+          <p>1. What year was the album “Saturn” released?</p>
+          <label><input type="radio" name="q1" value="2024"> 2024</label>
+          <label><input type="radio" name="q1" value="2023"> 2023</label>
+          <label><input type="radio" name="q1" value="2022"> 2022</label>
+        </div>
+
+        <div class="quiz-question">
+          <p>2. What genre best describes SZA’s music?</p>
+          <label><input type="radio" name="q2" value="R&B"> R&B / Neo-Soul</label>
+          <label><input type="radio" name="q2" value="Pop"> Pop</label>
+          <label><input type="radio" name="q2" value="Rock"> Rock</label>
+        </div>
+
+        <div class="quiz-question">
+          <p>3. What celestial body inspired the album title?</p>
+          <label><input type="radio" name="q3" value="Mars"> Mars</label>
+          <label><input type="radio" name="q3" value="Saturn"> Saturn</label>
+          <label><input type="radio" name="q3" value="Venus"> Venus</label>
+        </div>
+
+        <div class="quiz-question">
+          <p>4. Which song is part of the “Saturn” album?</p>
+          <label><input type="radio" name="q4" value="Saturn"> Saturn</label>
+          <label><input type="radio" name="q4" value="Good Days"> Good Days</label>
+          <label><input type="radio" name="q4" value="Kill Bill"> Kill Bill</label>
+        </div>
+
+        <div class="quiz-question">
+          <p>5. What is the message behind the album “Saturn”?</p>
+          <label><input type="radio" name="q5" value="Growth"> Growth and Self-Love</label>
+          <label><input type="radio" name="q5" value="Revenge"> Revenge</label>
+          <label><input type="radio" name="q5" value="Fame"> Fame and Popularity</label>
+        </div>
+
+        <button type="button" class="btn" onclick="checkAnswers()">Submit Answers</button>
+      </form>
+
+      <div id="quizResult" class="quiz-result"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 SZA: Saturn | Designed by Team Saturn</p>
+  </footer>
+
+  <script>
+    function checkAnswers() {
+      const correctAnswers = {
+        q1: "2024",
+        q2: "R&B",
+        q3: "Saturn",
+        q4: "Saturn",
+        q5: "Growth"
+      };
+
+      let score = 0;
+      for (let key in correctAnswers) {
+        const answer = document.querySelector(`input[name="${key}"]:checked`);
+        if (answer && answer.value === correctAnswers[key]) score++;
+      }
+
+      const result = document.getElementById("quizResult");
+      const messages = [
+        "🌑 Keep exploring SZA’s universe!",
+        "🪐 You’re a rising Saturn fan!",
+        "🌟 Cosmic perfection! You’re a true fan!"
+      ];
+
+      if (score <= 2) result.innerHTML = `<p>${messages[0]} (${score}/5)</p>`;
+      else if (score <= 4) result.innerHTML = `<p>${messages[1]} (${score}/5)</p>`;
+      else result.innerHTML = `<p>${messages[2]} (${score}/5)</p>`;
+
+      result.classList.add("show");
+    }
+  </script>
+</body>
+</html>
